@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sales Order Workflow — From Order to Cash</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<header>
+  <h1 id="headerTitle">Sales Order Workflow</h1><span class="themes" id="langs"><button data-lang="en" class="on">EN</button><button data-lang="da">DA</button></span><span class="themes" id="themes">
+  <button data-theme="">Light</button><button data-theme="night">Night</button><button data-theme="contrast">Contrast</button>
+</span><button class="tourbtn" id="tourBtn">Start tour</button><input id="searchBox" type="search"
+  placeholder="Search tasks, roles, outcomes…" aria-label="Search the workflow"><span id="searchCount" class="searchcount"></span><button class="helpbtn" id="helpBtn" aria-label="Keyboard shortcuts">?</button>
+  <p id="headerHint">Walk the list with <kbd>↑</kbd> <kbd>↓</kbd> · <kbd>→</kbd> into what could go wrong · <kbd>←</kbd> back out · or start the tour.</p>
+</header>
+
+<div class="shell">
+  <aside class="sidebar" id="sidebar" role="tree" aria-label="Workflow map: stages with exception paths">
+    <!-- map label, stage treeitems and exception-path groups injected by JS -->
+  </aside>
+
+  <div class="rail" id="rail" aria-hidden="true"></div>
+
+  <div class="mainrow">
+    <button id="prevBtn" class="sidebtn" aria-label="Previous node">‹</button>
+    <section class="detail" id="detail">
+      <div class="detail-top">
+        <span class="badge" id="d-badge"></span>
+        <span class="pos" id="position"></span>
+      </div>
+      <h2 id="d-title"></h2>
+      <p class="who"><strong id="d-responsible">Responsible:</strong> <span id="d-who"></span></p>
+      <div class="cols">
+        <div>
+          <h3 id="d-tasks-label">Tasks</h3>
+          <ul id="d-tasks"></ul>
+        </div>
+        <div>
+          <h3 id="d-outcomes-label">Outcomes</h3>
+          <ul class="outcomes" id="d-outcomes"></ul>
+        </div>
+      </div>
+      <div class="subtoggle" id="subtoggle"></div>
+    </section>
+    <button id="nextBtn" class="sidebtn" aria-label="Next node">›</button>
+  </div>
+</div>
+
+<footer>
+  <span id="footText">Departments involved: Sales · Finance · Warehouse · Production/QC · Logistics · Purchasing.
+  Key metrics to watch: order cycle time · fill rate · on-time delivery · DSO · return rate.</span> &nbsp;
+  <span class="link" id="closeLink">Back to start</span>
+</footer>
+
+<div class="printdoc" id="printdoc"></div>
+
+<div class="helpbox" id="helpBox" hidden>
+  <h3 id="helpTitle">Shortcuts</h3>
+  <table><tbody id="helpTbody"></tbody></table>
+</div>
+
+<script src="data.js"></script>
+<script src="data-da.js"></script>
+<script src="app.js"></script>
+
+
+</body>
+</html>
